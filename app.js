@@ -1,0 +1,4 @@
+let bags=JSON.parse(localStorage.bagvault||'[]');
+function saveBag(){bags.push({brand:brand.value,series:series.value,colorway:colorway.value,speed:speed.value,status:status.value,value:+value.value||0,notes:notes.value});localStorage.bagvault=JSON.stringify(bags);document.querySelectorAll('input,textarea').forEach(e=>e.value='');status.selectedIndex=0;render();}
+function render(){let q=search.value.toLowerCase(),v=0,s=0;bagsEl='';bags.forEach((b,i)=>{v+=b.value;if(b.status==='Sell')s++;if((b.brand+b.series+b.colorway).toLowerCase().includes(q)){bagsEl+=`<div class='bag'><b>${b.brand} ${b.series}</b><br>${b.colorway} • ${b.speed}<br>${b.status} • $${b.value}</div>`;}});bags.innerHTML=bagsEl;document.getElementById('bags').innerHTML=bagsEl;stats.innerHTML=`${bags.length} bags • ${s} for sale • $${v}`;}
+render();
