@@ -1,28 +1,24 @@
 <!doctype html><html><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bag Vault v2</title>
 <link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#111827">
-<title>Bag Vault</title>
 <link rel="stylesheet" href="style.css">
 </head><body>
 <header><h1>🎯 Bag Vault</h1><div id="stats"></div></header>
-<main>
-<section class="card">
-<h2>Add Bag</h2>
+<div class="wrap">
+<div class="card">
+<h2 id="formTitle">Add Bag</h2>
 <input id="brand" placeholder="Brand">
 <input id="series" placeholder="Series">
 <input id="colorway" placeholder="Colorway">
 <input id="speed" placeholder="Speed (5/8)">
-<select id="status"><option>Keep</option><option>Sell</option><option>Sold</option><option>Loaned</option></select>
 <input id="value" type="number" placeholder="Estimated Value">
+<select id="status"><option>Keep</option><option>Sell</option><option>Sold</option><option>Loaned</option></select>
 <textarea id="notes" placeholder="Notes"></textarea>
-<button onclick="saveBag()">Save Bag</button>
-</section>
-<section class="card">
-<input id="search" placeholder="Search..." oninput="render()">
-<div id="bags"></div>
-</section>
-</main>
-<script src="app.js"></script>
-<script>if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js');}</script>
-</body></html>
+<button id="saveBtn">Save Bag</button>
+</div>
+<div class="card">
+<input id="search" placeholder="Search...">
+<div id="list"></div>
+</div></div>
+<script src="app.js"></script></body></html>
